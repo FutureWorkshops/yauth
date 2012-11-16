@@ -38,7 +38,7 @@ class Yauth::UserManager
     manager = self.new
     return manager unless File.exists? path
     open(path) do |io|
-      YAML.load(io).each { |h| manager.add(Yauth::User.new(h)) }
+      YAML.load(io).each { |user| manager.add(user) }
     end
     manager
   end

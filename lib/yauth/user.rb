@@ -26,9 +26,10 @@ class Yauth::User
   def to_yaml(opts={})
     to_hash.to_yaml(opts)
   end
-
+  
+  # TODO - saving to YAML is broken so we can only check against the plain password for now
   def authenticate(password)
     return false if password.to_s == "" 
-    self.password == password
+    self.plain_password == password
   end
 end
